@@ -1,19 +1,9 @@
-"""뉴스 키워드 모니터링 - 엔트리포인트.
-
-흐름:
-  1) Secrets(TELEGRAM_BOT_TOKEN/CHAT_ID) 확인
-  2) keywords.yml 로드
-  3) sent_news.json 로드
-  4) 키워드별 네이버+구글 검색 -> 새 기사만 필터
-  5) 새 기사가 있으면 텔레그램 전송, 성공 시 sent_news.json 갱신
-  6) 새 기사가 없으면 전송하지 않음
-"""
+"""뉴스 키워드 모니터링 - 엔트리포인트."""
 import os
 import sys
 import html
 import logging
 
-# 루트/ src 어디서 실행해도 import 되도록 src를 경로에 추가
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
 import yaml  # noqa: E402
